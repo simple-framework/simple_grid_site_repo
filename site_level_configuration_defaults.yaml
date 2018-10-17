@@ -40,7 +40,7 @@ default_vo_dteam: &default_vo_dteam
 
 ##default values for group names
 default_group_alice_name: &default_group_alice_name alice
-default_group_alicesgm_name: &default_group_alicesgm_name atlas
+default_group_alicesgm_name: &default_group_alicesgm_name alicesgm
 default_group_dteam_name: &default_group_dteam_name dteam
 default_group_dteamsgm_name: &default_group_dteamsgm_name dteamsgm
 default_group_ops_name: &default_group_ops_name ops
