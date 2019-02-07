@@ -7,36 +7,38 @@ default_vo_generic_server_secondary: &default_vo_generic_server_secondary 'lcg-v
 
 ## defaults for supported_virtual_organizations
 default_vo_alice: &default_vo_alice
-  - name: alice
-  - server: *default_vo_generic_server_primary
-    port: '15000'
-    dn: *default_vo_generic_dn_server_primary
-    ca_dn: *default_vo_generic_dn_ca_cern
-  - server: *default_vo_generic_server_secondary
-    port: '15001'
-    dn: *default_vo_generic_dn_server_secondary
-    ca_dn: *default_vo_generic_dn_ca_cern
+  name: alice
+  servers:
+    - server: *default_vo_generic_server_primary
+      port: '15000'
+      dn: *default_vo_generic_dn_server_primary
+      ca_dn: *default_vo_generic_dn_ca_cern
+    - server: *default_vo_generic_server_secondary
+      port: '15001'
+      dn: *default_vo_generic_dn_server_secondary
+      ca_dn: *default_vo_generic_dn_ca_cern
 
 default_vo_ops: &default_vo_ops
-  - name: ops
-  - server: *default_vo_generic_server_primary
-    port: '15009'
-    dn: *default_vo_generic_dn_server_primary
-    ca_dn: *default_vo_generic_dn_ca_cern
-  - server: *default_vo_generic_server_secondary
-    port: '15009'
-    dn: *default_vo_generic_dn_server_secondary
-    ca_dn: *default_vo_generic_dn_ca_cern
+  name: ops
+  servers:
+    - server: *default_vo_generic_server_primary
+      port: '15009'
+      dn: *default_vo_generic_dn_server_primary
+      ca_dn: *default_vo_generic_dn_ca_cern
+    - server: *default_vo_generic_server_secondary
+      port: '15009'
+      dn: *default_vo_generic_dn_server_secondary
+      ca_dn: *default_vo_generic_dn_ca_cern
 
-default_vo_dteam: &default_vo_dteam
-  - server: *default_vo_generic_server_primary
-    port: '15001'
-    dn: *default_vo_generic_dn_server_primary
-    ca_dn: *default_vo_generic_dn_ca_cern
-  - server: *default_vo_generic_server_secondary
-    port: '15001'
-    dn: *default_vo_generic_dn_server_secondary
-    ca_dn: *default_vo_generic_dn_ca_cern
+  default_vo_dteam: &default_vo_dteam
+    - server: *default_vo_generic_server_primary
+      port: '15001'
+      dn: *default_vo_generic_dn_server_primary
+      ca_dn: *default_vo_generic_dn_ca_cern
+    - server: *default_vo_generic_server_secondary
+      port: '15001'
+      dn: *default_vo_generic_dn_server_secondary
+      ca_dn: *default_vo_generic_dn_ca_cern
 
 ##default values for group names
 default_group_alice_name: &default_group_alice_name alice
