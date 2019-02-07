@@ -14,7 +14,7 @@ default_vo_alice: &default_vo_alice
       dn: *default_vo_generic_dn_server_primary
       ca_dn: *default_vo_generic_dn_ca_cern
     - server: *default_vo_generic_server_secondary
-      port: '15001'
+      port: '15000'
       dn: *default_vo_generic_dn_server_secondary
       ca_dn: *default_vo_generic_dn_ca_cern
 
@@ -31,6 +31,8 @@ default_vo_ops: &default_vo_ops
       ca_dn: *default_vo_generic_dn_ca_cern
 
   default_vo_dteam: &default_vo_dteam
+   name: dteam
+   servers:
     - server: *default_vo_generic_server_primary
       port: '15001'
       dn: *default_vo_generic_dn_server_primary
@@ -88,10 +90,6 @@ default_pool_account_dteamsgm: &default_pool_account_dteamsgm
   users_num: '5'
   primary_group: *default_group_dteamsgm_name
   secondary_group: *default_group_dteam_name
-    
-default_pool_account_dteam_with_sgm: &default_pool_account_dteam_with_sgm
-  - *default_pool_account_dteam 
-  - *default_pool_account_dteamsgm
 
 default_pool_account_ops: &default_pool_account_ops  
   base_name: 'ops'
@@ -105,7 +103,3 @@ default_pool_account_opssgm: &default_pool_account_opssgm
   users_num: '10'
   primary_group: *default_group_ops_name
   secondary_group: *default_group_opssgm_name
-
-default_pool_account_ops_with_sgm: &default_pool_account_ops_with_sgm
-  - *default_pool_account_ops
-  - *default_pool_account_opssgm
