@@ -17,6 +17,8 @@ default_vo_alice: &default_vo_alice
       port: '15000'
       dn: *default_vo_generic_dn_server_secondary
       ca_dn: *default_vo_generic_dn_ca_cern
+  default_se: not_used.some-domain
+  sw_dir: '.'
 
 default_vo_ops: &default_vo_ops
   name: ops
@@ -29,10 +31,12 @@ default_vo_ops: &default_vo_ops
       port: '15009'
       dn: *default_vo_generic_dn_server_secondary
       ca_dn: *default_vo_generic_dn_ca_cern
+  default_se: not_used.some-domain
+  sw_dir: '.'
 
-  default_vo_dteam: &default_vo_dteam
-   name: dteam
-   servers:
+default_vo_dteam: &default_vo_dteam
+  name: dteam
+  servers:
     - server: *default_vo_generic_server_primary
       port: '15001'
       dn: *default_vo_generic_dn_server_primary
@@ -41,7 +45,9 @@ default_vo_ops: &default_vo_ops
       port: '15001'
       dn: *default_vo_generic_dn_server_secondary
       ca_dn: *default_vo_generic_dn_ca_cern
-
+  default_se: not_used.some-domain
+  sw_dir: '.'
+  
 ##default values for group names
 default_group_alice_name: &default_group_alice_name alice
 default_group_alicesgm_name: &default_group_alicesgm_name alicesgm
