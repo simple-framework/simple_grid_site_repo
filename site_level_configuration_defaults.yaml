@@ -19,6 +19,7 @@ default_vo_alice: &default_vo_alice
       ca_dn: *default_vo_generic_dn_ca_cern
   default_se: not_used.some-domain
   sw_dir: '.'
+  storage_dir: "/not/used"
 
 default_vo_ops: &default_vo_ops
   name: ops
@@ -33,7 +34,8 @@ default_vo_ops: &default_vo_ops
       ca_dn: *default_vo_generic_dn_ca_cern
   default_se: not_used.some-domain
   sw_dir: '.'
-
+  storage_dir: "/storage/ops"
+  
 default_vo_dteam: &default_vo_dteam
   name: dteam
   servers:
@@ -47,6 +49,7 @@ default_vo_dteam: &default_vo_dteam
       ca_dn: *default_vo_generic_dn_ca_cern
   default_se: not_used.some-domain
   sw_dir: '.'
+  storage_dir: "/storage/dteam"
   
 ##default values for group names
 default_group_alice_name: &default_group_alice_name alice
