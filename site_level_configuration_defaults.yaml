@@ -9,10 +9,10 @@ default_vo_generic_server_secondary: &default_vo_generic_server_secondary 'lcg-v
 default_vo_alice: &default_vo_alice
   name: alice
   servers:
-    - server: *default_vo_generic_server_primary
+    - server: *default_vo_generic_server_primary #voms2.cern.ch
       port: '15000'
-      dn: *default_vo_generic_dn_server_primary
-      ca_dn: *default_vo_generic_dn_ca_cern
+      dn: *default_vo_generic_dn_server_primary #'/DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch'
+      ca_dn: *default_vo_generic_dn_ca_cern #'/DC=ch/DC=cern/CN=CERN Grid Certification Authority'
     - server: *default_vo_generic_server_secondary
       port: '15000'
       dn: *default_vo_generic_dn_server_secondary
