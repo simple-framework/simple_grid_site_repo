@@ -121,7 +121,7 @@ default_pool_account_ops: &default_pool_accounts_ops
   initial_uid: 45001
   users_num: 10
   primary_group: *default_group_ops
-  secondary_group: []
+  secondary_groups: []
 
 default_pool_account_opssgm: &default_pool_accounts_opssgm
   base_name: 'sgmops'
