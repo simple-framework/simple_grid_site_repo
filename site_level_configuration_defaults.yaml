@@ -101,14 +101,14 @@ default_pool_accounts_alicesgm: &default_pool_accounts_alicesgm
   secondary_groups:
     - *default_group_alice
 
-default_pool_accounts_dteam: &default_pool_account_dteam
+default_pool_accounts_dteam: &default_pool_accounts_dteam
   base_name: 'dteam'
   initial_uid: 18118
   users_num: 10
   primary_group: *default_group_dteam_name
   secondary_groups: []
   
-default_pool_accounts_dteamsgm: &default_pool_account_dteamsgm
+default_pool_accounts_dteamsgm: &default_pool_accounts_dteamsgm
   base_name: 'sgmdtm'
   initial_uid: 60501
   users_num: 5
@@ -116,14 +116,14 @@ default_pool_accounts_dteamsgm: &default_pool_account_dteamsgm
   secondary_groups:
     - *default_group_dteam
 
-default_pool_account_ops: &default_pool_account_ops  
+default_pool_account_ops: &default_pool_accounts_ops  
   base_name: 'ops'
   initial_uid: 45001
   users_num: 10
   primary_group: *default_group_ops_name
   secondary_group: []
 
-default_pool_account_opssgm: &default_pool_account_opssgm
+default_pool_account_opssgm: &default_pool_accounts_opssgm
   base_name: 'sgmops'
   initial_uid: 60701
   users_num: 10
