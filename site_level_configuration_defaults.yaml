@@ -50,7 +50,8 @@ default_vo_dteam: &default_vo_dteam
   default_se: not_used.some-domain
   sw_dir: '.'
   storage_dir: "/storage/dteam"
-  
+
+
 ##default values for group names
 default_group_alice_name: &default_group_alice_name alice
 default_group_alicesgm_name: &default_group_alicesgm_name alicesgm
@@ -61,54 +62,72 @@ default_group_opssgm_name: &default_group_opssgm_name opssgm
 
 ##default values for groups
 default_group_alice: &default_group_alice
-  
+  gid: 1395
+  name: *default_group_alice_name
+
+default_group_alicesgm: &default_group_alice
+  gid: 1397
+  name: *default_group_alicesgm_name
 
 default_group_dteam: &default_group_dteam
   gid: 2688
   name: *default_group_dteam_name
-  accepted_voms_extensions:
 
 default_group_dteamsgm: &default_group_dteamsgm
   gid: 2680
   name: *default_group_dteamsgm_name
-  priority_group: sgm
-  accepted_voms_extensions:
 
 default_group_ops: &default_group_ops
   gid: 45000
   name: *default_group_ops_name
-  accepted_voms_extensions:
 
 default_group_opssgm: &default_group_opssgm
   gid: 46001
   name: *default_group_opssgm_name
-  priority_group: sgm
-  accepted_voms_extensions: '/alice/ROLE='
 
-  ## default pool accounts
+# default pool accounts
+default_pool_accounts_alice: &default_pool_accounts_alice
+  base_name: 'alice'
+  initial_uid: 10417
+  users_num: 5
+  primary_group: *default_group_alice
+  secondary_groups: []
 
-default_pool_account_dteam: &default_pool_account_dteam
+default_pool_accounts_alicesgm: &default_pool_accounts_alicesgm
+  base_name: 'sgmali'
+  initial_uid: 60101
+  users_num: 10
+  primary_group: *default_group_alicesgm
+  secondary_groups:
+    - *default_group_alice
+
+default_pool_accounts_dteam: &default_pool_account_dteam
   base_name: 'dteam'
-  initial_uid: '18118'
-  users_num: '10'
+  initial_uid: 18118
+  users_num: 10
   primary_group: *default_group_dteam_name
+  secondary_groups: []
   
-default_pool_account_dteamsgm: &default_pool_account_dteamsgm
+default_pool_accounts_dteamsgm: &default_pool_account_dteamsgm
   base_name: 'sgmdtm'
-  initial_uid: '60501'
-  users_num: '5'
+  initial_uid: 60501
+  users_num: 5
   primary_group: *default_group_dteamsgm_name
-  secondary_group: *default_group_dteam_name
+  secondary_groups:
+    - *default_group_dteam
 
 default_pool_account_ops: &default_pool_account_ops  
   base_name: 'ops'
-  initial_uid: '45001'
-  users_num: '10'
+  initial_uid: 45001
+  users_num: 10
   primary_group: *default_group_ops_name
+  secondary_group: []
 
 default_pool_account_opssgm: &default_pool_account_opssgm
   base_name: 'sgmops'
-  initial_uid: '60701'
-  users_num: '10'
+  initial_uid: 60701
+  users_num: 10
   primary_group: *default_group_ops_name
-  secondary_group: *default_group_opssgm_name
+  secondary_groups: 
+    - *default_group_opssgm_name
+
