@@ -65,7 +65,7 @@ default_group_alice: &default_group_alice
   gid: 1395
   name: *default_group_alice_name
 
-default_group_alicesgm: &default_group_alice
+default_group_alicesgm: &default_group_alicesgm
   gid: 1397
   name: *default_group_alicesgm_name
 
