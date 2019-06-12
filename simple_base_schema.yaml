@@ -1,0 +1,37 @@
+schema: url(required=True, use_default=True)
+
+global_variables: list(include('global_variable'), required=False, use_default=False)
+
+site_infrastructure: list(include('node'), required=True, use_default=False)
+
+lightweight_components: list(include('lightweight_component'), required=True, use_default=False)
+
+---
+node:
+  fqdn: str()
+  ip_address: ip(version=4)
+---
+lightweight_component:
+  name: str(required=True, use_default=False)
+  type: str(required=True, use_default=False)
+  repository_url: url(required=True, use_default=False)
+  repository_revision: str(required=True, use_default=False)
+  execution_id: int(required=True, use_default=False)
+  lifecycle_hooks:
+    pre_config: list(str(required=True, use_default=False))
+    pre_init: list(str(required=True, use_default=False))
+    post_init: list(str(required=True, use_default=False))
+  deploy: list(include('doms'), required=True, use_default=False)
+  preferred_tech_stack:
+    level_2_configuration: str()
+  config: component_repository_schema(required=True, use_default=False)
+  supplemental_config:
+    some_additional_parameter: str()
+---
+doms:
+  node: str(required=True, use_default=False)
+  container_count: int(required=True, use_default=False)
+---
+global_variable: ip(version=4, required=True)
+---
+component_repository_schema: #import from component_repository
