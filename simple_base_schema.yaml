@@ -1,10 +1,10 @@
-schema: url(required=True, use_default=True)
+schema: url(required: true, use_default: true)
 
-global_variables: list(include('global_variable'), required=False, use_default=False)
+global_variables: list(include('global_variable'), required: false, use_default: false)
 
-site_infrastructure: list(include('node'), required=True, use_default=False)
+site_infrastructure: list(include('node'), required: true, use_default: false)
 
-lightweight_components: list(include('lightweight_component'), required=True, use_default=False)
+lightweight_components: list(include('lightweight_component'), required: true, use_default: false)
 
 ---
 node:
@@ -12,26 +12,26 @@ node:
   ip_address: ip(version=4)
 ---
 lightweight_component:
-  name: str(required=True, use_default=False)
-  type: str(required=True, use_default=False)
-  repository_url: url(required=True, use_default=False)
-  repository_revision: str(required=True, use_default=False)
-  execution_id: int(required=True, use_default=False)
+  name: str(required: true, use_default: false)
+  type: str(required: true, use_default: false)
+  repository_url: url(required: true, use_default: false)
+  repository_revision: str(required: true, use_default: false)
+  execution_id: int(required: true, use_default: false)
   lifecycle_hooks:
-    pre_config: list(str(required=True, use_default=False))
-    pre_init: list(str(required=True, use_default=False))
-    post_init: list(str(required=True, use_default=False))
-  deploy: list(include('doms'), required=True, use_default=False)
+    pre_config: list(str(required: true, use_default: false))
+    pre_init: list(str(required: true, use_default: false))
+    post_init: list(str(required: true, use_default: false))
+  deploy: list(include('doms'), required: true, use_default: false)
   preferred_tech_stack:
     level_2_configuration: str()
-  config: component_repository_schema(required=True, use_default=False)
+  config: component_repository_schema(required: true, use_default: false)
   supplemental_config:
     some_additional_parameter: str()
 ---
 doms:
-  node: str(required=True, use_default=False)
-  container_count: int(required=True, use_default=False)
+  node: str(required: true, use_default: false)
+  container_count: int(required: true, use_default: false)
 ---
-global_variable: ip(version=4, required=True)
+global_variable: global_var()
 ---
 component_repository_schema: #import from component_repository
