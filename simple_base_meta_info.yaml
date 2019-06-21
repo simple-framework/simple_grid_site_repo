@@ -1,0 +1,4 @@
+component: simple-base
+default_var_prefix: simple_base_default_var
+type: schema
+version: 1.0
