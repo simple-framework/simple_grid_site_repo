@@ -1,11 +1,11 @@
-schema: { type: url(), required: true, use_default: true }
+expected:
+  schema: { type: url(), required: true, use_default: true }
 
-global_variables: { type: list(global_variable), required: false, use_default: false }
+  global_variables: { type: list(global_variable), required: false, use_default: false }
 
-site_infrastructure: { type: list(node), required: true, use_default: false }
+  site_infrastructure: { type: list(node), required: true, use_default: false }
 
-lightweight_components: { type: list(lightweight_component), required: true, use_default: false }
-
+  lightweight_components: { type: list(lightweight_component), required: true, use_default: false }
 ---
 node:
   fqdn: { type: str(), required: true, use_default: false }
