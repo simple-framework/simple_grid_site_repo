@@ -17,17 +17,23 @@ lightweight_component:
   repository_url: { type: url(), required: true, use_default: false }
   repository_revision: { type: str(), required: true, use_default: false }
   execution_id: { type: int(), required: true, use_default: false }
-  lifecycle_hooks:
-    pre_config: { type: list(str()), required: true, use_default: false }
-    pre_init: { type: list(str()), required: true, use_default: false }
-    post_init: { type: list(str()), required: true, use_default: false }
+  lifecycle_hooks: { type: lc_hooks, required: true, use_default: false }
   deploy: { type: list(doms), required: true, use_default: false }
-  preferred_tech_stack:
-    level_2_configuration: { type: str(), required: false, use_default: false }
+  preferred_tech_stack: { type: l2_config, required: true, use_default: false }
   config: { type: component_repository_schema(), required: true, use_default: false }
-  supplemental_config:
-    some_additional_parameter: { type: str(), required: false, use_default: false }
+  supplemental_config:  { type: supp_config, required: false, use_default: false }
 ---
 doms:
   node: { type: str(), required: true, use_default: false }
   container_count: { type: int(), required: true, use_default: false }
+---
+lc_hooks:
+  pre_config: { type: list(str()), required: true, use_default: false }
+  pre_init: { type: list(str()), required: true, use_default: false }
+  post_init: { type: list(str()), required: true, use_default: false }
+---
+l2_config:
+  level_2_configuration: { type: str(), required: false, use_default: false }
+---
+supp_config:
+  some_additional_parameter: { type: str(), required: false, use_default: false }  
