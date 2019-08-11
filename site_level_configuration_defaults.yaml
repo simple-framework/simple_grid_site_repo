@@ -41,12 +41,8 @@ default_vo_dteam: &default_vo_dteam
   servers:
     - server: *default_vo_generic_server_primary
       port: '15001'
-      dn: *default_vo_generic_dn_server_primary
-      ca_dn: *default_vo_generic_dn_ca_cern
-    - server: *default_vo_generic_server_secondary
-      port: '15001'
-      dn: *default_vo_generic_dn_server_secondary
-      ca_dn: *default_vo_generic_dn_ca_cern
+      dn: /C=GR/O=HellasGrid/OU=hellasgrid.gr/CN=voms2.hellasgrid.gr
+      ca_dn: "/C=GR/O=HellasGrid/OU=Certification Authorities/CN=HellasGrid CA 2016"
   default_se: not_used.some-domain
   sw_dir: '.'
   storage_dir: "/storage/dteam"
