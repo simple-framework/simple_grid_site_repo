@@ -97,7 +97,7 @@ default_vo_dteam: &default_vo_dteam
 default_group_alice_name: &default_group_alice_name alice
 default_group_alicesgm_name: &default_group_alicesgm_name alicesgm
 default_group_atlas_name: &default_group_atlas_name atlas
-default_group_atlassgm_name: &default_group_atlasgm_name atlassgm
+default_group_atlassgm_name: &default_group_atlassgm_name atlassgm
 default_group_cms_name: &default_group_cms_name cms
 default_group_cmssgm_name: &default_group_cmssgm_name cmssgm
 default_group_lhcb_name: &default_group_lhcb_name lhcb
