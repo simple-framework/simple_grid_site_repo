@@ -21,6 +21,51 @@ default_vo_alice: &default_vo_alice
   sw_dir: '.'
   storage_dir: "/not/used"
 
+default_vo_atlas: &default_vo_atlas
+  name: atlas
+  servers:
+    - server: *default_vo_generic_server_primary #voms2.cern.ch
+      port: '15001'
+      dn: *default_vo_generic_dn_server_primary #'/DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch'
+      ca_dn: *default_vo_generic_dn_ca_cern #'/DC=ch/DC=cern/CN=CERN Grid Certification Authority'
+    - server: *default_vo_generic_server_secondary
+      port: '15001'
+      dn: *default_vo_generic_dn_server_secondary
+      ca_dn: *default_vo_generic_dn_ca_cern
+  default_se: not_used.some-domain
+  sw_dir: '.'
+  storage_dir: "/not/used"
+
+default_vo_cms: &default_vo_cms
+  name: cms
+  servers:
+    - server: *default_vo_generic_server_primary #voms2.cern.ch
+      port: '15002'
+      dn: *default_vo_generic_dn_server_primary #'/DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch'
+      ca_dn: *default_vo_generic_dn_ca_cern #'/DC=ch/DC=cern/CN=CERN Grid Certification Authority'
+    - server: *default_vo_generic_server_secondary
+      port: '15002'
+      dn: *default_vo_generic_dn_server_secondary
+      ca_dn: *default_vo_generic_dn_ca_cern
+  default_se: not_used.some-domain
+  sw_dir: '.'
+  storage_dir: "/not/used"
+
+default_vo_lhcb: &default_vo_lhcb
+  name: lhcb
+  servers:
+    - server: *default_vo_generic_server_primary #voms2.cern.ch
+      port: '15003'
+      dn: *default_vo_generic_dn_server_primary #'/DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch'
+      ca_dn: *default_vo_generic_dn_ca_cern #'/DC=ch/DC=cern/CN=CERN Grid Certification Authority'
+    - server: *default_vo_generic_server_secondary
+      port: '15003'
+      dn: *default_vo_generic_dn_server_secondary
+      ca_dn: *default_vo_generic_dn_ca_cern
+  default_se: not_used.some-domain
+  sw_dir: '.'
+  storage_dir: "/not/used"
+
 default_vo_ops: &default_vo_ops
   name: ops
   servers:
@@ -51,6 +96,12 @@ default_vo_dteam: &default_vo_dteam
 ##default values for group names
 default_group_alice_name: &default_group_alice_name alice
 default_group_alicesgm_name: &default_group_alicesgm_name alicesgm
+default_group_atlas_name: &default_group_atlas_name atlas
+default_group_atlassgm_name: &default_group_atlasgm_name atlassgm
+default_group_cms_name: &default_group_cms_name cms
+default_group_cmssgm_name: &default_group_cmssgm_name cmssgm
+default_group_lhcb_name: &default_group_lhcb_name lhcb
+default_group_lhcbsgm_name: &default_group_lhcbsgm_name lhcbsgm
 default_group_dteam_name: &default_group_dteam_name dteam
 default_group_dteamsgm_name: &default_group_dteamsgm_name dteamsgm
 default_group_ops_name: &default_group_ops_name ops
@@ -64,6 +115,30 @@ default_group_alice: &default_group_alice
 default_group_alicesgm: &default_group_alicesgm
   gid: 1397
   name: *default_group_alicesgm_name
+
+default_group_atlas: &default_group_atlas
+  gid: 1399
+  name: *default_group_atlas_name
+
+default_group_atlassgm: &default_group_atlassgm
+  gid: 1401
+  name: *default_group_atlassgm_name
+
+default_group_cms: &default_group_cms
+  gid: 1403
+  name: *default_group_cms_name
+
+default_group_cmssgm: &default_group_cmssgm
+  gid: 1405
+  name: *default_group_cmssgm_name
+
+default_group_lhcb: &default_group_lhcb
+  gid: 1407
+  name: *default_group_lhcb_name
+
+default_group_lhcbsgm: &default_group_lhcbsgm
+  gid: 1409
+  name: *default_group_lhcbsgm_name
 
 default_group_dteam: &default_group_dteam
   gid: 2688
@@ -96,6 +171,51 @@ default_pool_accounts_alicesgm: &default_pool_accounts_alicesgm
   primary_group: *default_group_alicesgm
   secondary_groups:
     - *default_group_alice
+
+default_pool_accounts_atlas: &default_pool_accounts_atlas
+  base_name: 'atlas'
+  initial_uid: 12417
+  users_num: 5
+  primary_group: *default_group_atlas
+  secondary_groups: []
+
+default_pool_accounts_atlassgm: &default_pool_accounts_atlassgm
+  base_name: 'sgmatlas'
+  initial_uid: 62101
+  users_num: 10
+  primary_group: *default_group_atlassgm
+  secondary_groups:
+    - *default_group_atlas
+
+default_pool_accounts_cms: &default_pool_accounts_cms
+  base_name: 'cms'
+  initial_uid: 14417
+  users_num: 5
+  primary_group: *default_group_cms
+  secondary_groups: []
+
+default_pool_accounts_cmssgm: &default_pool_accounts_cmssgm
+  base_name: 'sgmcms'
+  initial_uid: 64101
+  users_num: 10
+  primary_group: *default_group_cmssgm
+  secondary_groups:
+    - *default_group_cms
+
+default_pool_accounts_lhcb: &default_pool_accounts_lhcb
+  base_name: 'lhcb'
+  initial_uid: 16417
+  users_num: 5
+  primary_group: *default_group_lhcb
+  secondary_groups: []
+
+default_pool_accounts_lhcbsgm: &default_pool_accounts_lhcbsgm
+  base_name: 'sgmlhcb'
+  initial_uid: 66101
+  users_num: 10
+  primary_group: *default_group_lhcbsgm
+  secondary_groups:
+    - *default_group_lhcb
 
 default_pool_accounts_dteam: &default_pool_accounts_dteam
   base_name: 'dteam'
